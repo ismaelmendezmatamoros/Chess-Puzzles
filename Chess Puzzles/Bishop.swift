@@ -16,7 +16,6 @@ class Bishop: Piece
         super.init(piece: piece)
     }
     
-    //var superclass:Piece = Piece(piece: k)
     override func possiblesMovements(board:Board, position:(x:Int,y:Int)) -> [(x:Int,y:Int)]
     {
         var possibles:[(x:Int,y:Int)] = []
@@ -24,8 +23,7 @@ class Bishop: Piece
         {
             for j in 0...board.board[i].count - 1
             {
-                
-                if(( abs(position.x - i) == abs(position.y - j)) )
+                if(( abs(position.x - i) == abs(position.y - j)) )                      //solo las diagonales
                 {
                     possibles.append((x:i, y:j))
                 }

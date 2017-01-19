@@ -33,7 +33,9 @@ class GameViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
-
+    /*
+    * Segun el nombre del juego seleccionado en el menu lanza una pantalla con un juego distinto
+    */
     func changeToGameScene(game:String, options: [String:Any?])
     {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -41,7 +43,7 @@ class GameViewController: UIViewController {
         {
         case "nQueens":
             let resultViewController = storyBoard.instantiateViewController(withIdentifier: "QueensGameScreen") as! nQueensGame//BoardGameViewController
-            resultViewController.parameters["numQueens"] = 8 as Any
+            resultViewController.parameters["numQueens"] = 8 as Any                                        //Numero de reinas a colocar. Al final no se cambia desde el juego
             self.present(resultViewController, animated:true, completion:nil)
         break
             

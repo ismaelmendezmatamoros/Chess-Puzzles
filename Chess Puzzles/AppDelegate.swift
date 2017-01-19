@@ -1,14 +1,14 @@
 //
 //  AppDelegate.swift
-//  Chess Puzzles
+//  BrainGame
 //
-//  Created by eicke on 19/1/17.
+//  Created by eicke on 9/1/17.
 //  Copyright © 2017 eicke. All rights reserved.
 //
 
 import UIKit
 
-@UIApplicationMain
+@UIApplicationMain  
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

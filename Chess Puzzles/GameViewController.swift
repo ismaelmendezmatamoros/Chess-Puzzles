@@ -1,112 +1,69 @@
 //
 //  GameViewController.swift
-//  Chess Puzzles
+//  BrainGame
 //
-//  Created by eicke on 19/1/17.
+//  Created by eicke on 9/1/17.
 //  Copyright © 2017 eicke. All rights reserved.
 //
 
 import UIKit
-import QuartzCore
+import SpriteKit
+import GameplayKit
 import SceneKit
 
 class GameViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad() {  
+         super.viewDidLoad()
         
-        // create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
-        
-        // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
-        
-        // create and add a light to the scene
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-        scene.rootNode.addChildNode(lightNode)
-        
-        // create and add an ambient light to the scene
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = .ambient
-        ambientLightNode.light!.color = UIColor.darkGray
-        scene.rootNode.addChildNode(ambientLightNode)
-        
-        // retrieve the ship node
-        let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
-        
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
-        
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
-        // set the scene to the view
-        scnView.scene = scene
-        
-        // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
-        
-        // show statistics such as fps and timing information
-        scnView.showsStatistics = true
-        
-        // configure the view
-        scnView.backgroundColor = UIColor.black
-        
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
-    }
-    
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result: AnyObject = hitResults[0]
+        if let view = self.view as! SKView? {
+
+            let scene =  GameScene()
+            scene.viewController = self
+            scene.scaleMode = .aspectFill
+            view.presentScene(scene)
+            view.ignoresSiblingOrder = false
             
-            // get its material
-            let material = result.node!.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
+            view.showsFPS = true
+            view.showsNodeCount = true
+ 
         }
     }
-    
+
     override var shouldAutorotate: Bool {
         return true
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
+
+    func changeToGameScene(game:String, options: [String:Any?])
+    {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        switch(game)
+        {
+        case "nQueens":
+            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "QueensGameScreen") as! nQueensGame//BoardGameViewController
+            resultViewController.parameters["numQueens"] = 8 as Any
+            self.present(resultViewController, animated:true, completion:nil)
+        break
+            
+        case "Bishops":
+            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "BishopsGameScreen") as! BishopsGame//BoardGameViewController
+            self.present(resultViewController, animated:true, completion:nil)
+        break
+            
+        case "Knights":
+            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "KnightsGameScreen") as! KnightsGame//BoardGameViewController
+            self.present(resultViewController, animated:true, completion:nil)
+            break
+
+        case "Knights36":
+            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Knights36GameScreen") as! Knights36Game//BoardGameViewController
+            self.present(resultViewController, animated:true, completion:nil)
+            break
+            
+        default:
+            break
+        }
+
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -116,10 +73,13 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

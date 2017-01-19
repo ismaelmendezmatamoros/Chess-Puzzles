@@ -22,12 +22,10 @@ class Piece: NSObject
         let lambda =
             { (a:SCNNode, b:UnsafeMutablePointer<ObjCBool>) in
                 a.castsShadow = false
-
                 a.geometry?.firstMaterial?.isLitPerPixel = true
                 a.geometry?.firstMaterial?.specular.contents = UIColor.black
-                 
-                
         }
+        
         self.node.enumerateChildNodes(lambda)
     }
     
@@ -54,16 +52,7 @@ class Piece: NSObject
         self.node.enumerateChildNodes(lambda)
         
     }
-    /*
-    var hashValue: Int {
-            return node.hashValue ^ team.hashValue
-    }
     
-    static func == (lhs: Piece, rhs: Piece) -> Bool {
-            return lhs.node == rhs.node && lhs.team == rhs.team
-    }
-
-*/
     func possiblesMovements(board:Board, position:(x:Int,y:Int)) -> [(x:Int,y:Int)]
     {
         return []

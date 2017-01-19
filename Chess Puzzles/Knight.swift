@@ -17,7 +17,6 @@ class Knight:Piece
         super.init(piece: piece)
     }
     
-    //var superclass:Piece = Piece(piece: k)
     override func possiblesMovements(board:Board, position:(x:Int,y:Int)) -> [(x:Int,y:Int)]
     {
         var possibles:[(x:Int,y:Int)] = []
@@ -26,7 +25,7 @@ class Knight:Piece
             for j in 0...board.board[i].count - 1
             {
                 
-                if(( abs(position.x - i) == 1 && abs(position.y - j) == 2) || ( abs(position.x - i) == 2 && abs(position.y - j) == 1))
+                if(( abs(position.x - i) == 1 && abs(position.y - j) == 2) || ( abs(position.x - i) == 2 && abs(position.y - j) == 1)) //pasa la casilla al sistema de coordenadas del callo y aplica la condicion
                 {
                     possibles.append((x:i, y:j))
                 }

@@ -133,7 +133,7 @@ class KnightsGame: BoardGameViewController
             }
         }
         Piece.default_y_position = (self.board?.pieces_on_board.keys.first?.node.position.y)!
-        self.showExitButton()
+        self.showOverlays()
         super.setupScene()
 
         

@@ -12,25 +12,29 @@ import SceneKit
 import SpriteKit
 import Foundation
 
+
+/*
+ * Clase base para cada uno de los juegos. En esta clase se realiza el main loop de cada juego con cada uno de sus pasos
+ *
+ */
+
 class BoardGameViewController: UIViewController {
     
     private var semaphore:semaphore_t = semaphore_t()
-    var numplayers:Int = 0
-    var turns:Int = 0
-    var rounds:Int = 0
+    var numplayers:Int = 0                                                              //numero de jugadores del juego
+    var turns:Int = 0                                                                   //turnos efectuados
+    var rounds:Int = 0                                                                  //rondas efectuadas
     var scene = SCNScene()
-    var current_turn_player = 0
     var touchEnabled = false
-    var parameters:[String:Any] = [:]
-    var board:Board?
-    var pieces:[String:Piece] = [:]
-    var exitButton:SKLabelNode = SKLabelNode()
-    var timer:SKLabelNode = SKLabelNode()
-    var moves:SKLabelNode = SKLabelNode()
-    var victory:Bool = false
+    var parameters:[String:Any] = [:]                                                   //opciones pasadas como parametros para el juego
+    var board:Board?                                                                    //instancia de tablero del juego
+    var pieces:[String:Piece] = [:]                                                     //tipos de Piezas diferentes organizadas por nombre. Dsitinto de las piezas del tablero
+    var exitButton:SKLabelNode = SKLabelNode()                                          //Sprite que hace de boton de salida en el overlay de los juegos
+    var moves:SKLabelNode = SKLabelNode()                                               //Sprite del numero de movimientos efectads
+    var victory:Bool = false                                                            //Si la partida ha terminado o no
     
     
-    let movement_semaphore = DispatchSemaphore.init(value: 0)
+    let movement_semaphore = DispatchSemaphore.init(value: 0)                           //semaforos para controlar el avance en las etapas de la partida. ver mas adelante
     let before_turn_semaphore = DispatchSemaphore.init(value: 0)
     let turns_end_semaphore = DispatchSemaphore.init(value: 0)
     
@@ -41,41 +45,13 @@ class BoardGameViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        scene = SCNScene()//named: "Piecescollada.dae")!
+        scene = SCNScene()
         let scnView = self.view as! SCNView
-        //let x = scnView.technique?["passes"] as! [String:Any]
-        //let g = x["cullMode"]
-        // set the scene to the view
-        scnView.scene = scene/*
-        let overlay = SKScene(size: CGSize(width: 1000, height: 1000))
-        overlay.anchorPoint = CGPoint.zero
-        let button = SKSpriteNode(color: UIColor.red, size: CGSize(width: 10, height: 10))//SKSpriteNode(imageNamed: "brainguy.png")
-        let framesize = overlay.size
-        button.size.width = framesize.width * 0.1
-        button.size.height = framesize.height * 0.1
-        button.position.x = framesize.width - button.size.width
-        button.position.y = framesize.height * 0.01
-        
-        //button.frame = CGRect(x: 0, y: 0, width: , height: )
-        overlay.addChild(button)
-        ////////////////////
-        
 
-
-        
-        /////////////////////
-        
-        scnView.overlaySKScene? = overlay
-        scnView.overlaySKScene?.isHidden = false
-        scnView.overlaySKScene?.isUserInteractionEnabled = true
-        scnView.overlaySKScene?.scaleMode = .resizeFill
- */
+        scnView.scene = scene
         // allows the user to manipulate the camera
         scnView.allowsCameraControl = true
-        
-        // show statistics such as fps and timing information
-        scnView.showsStatistics = true
-        
+      
         // configure the view
         scnView.backgroundColor = UIColor.black
         scnView.antialiasingMode = .multisampling4X
@@ -84,113 +60,108 @@ class BoardGameViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
 
         scnView.addGestureRecognizer(tapGesture)
-        self.performSelector(inBackground: #selector(BoardGameViewController.startGameLoop), with: nil)
-        
-        
+        self.performSelector(inBackground: #selector(BoardGameViewController.startGameLoop), with: nil)                    //Lanza la ejecucion del main loop del juego.ver funcion mas adelante
  }
-
     
-    func showExitButton()
+    /*
+     *Mustra el boton de exit y el numero de turnos
+     **/
+    func showOverlays()
     {
-        
         let vie = self.view as! SCNView
-        let overlay = SKScene.init(size:  CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        //let sp = SKLabelNode(text: "EXIT")
-        
-
-
-        // set the scene to the view
-        //vie.scene = self.scene
-        self.showOverlay(overlay: overlay ,node: self.exitButton, text: "exit", fontsize: CGFloat(30), x_relative: 0.95, y_relative: 0.05)
+        let overlay = SKScene.init(size:  CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))                //Añade una capa de SKscene sobre la escena
+        self.showOverlay(overlay: overlay ,node: self.exitButton, text: "exit", fontsize: CGFloat(30), x_relative: 0.95, y_relative: 0.05)              //Crea y añade los SKlabels
         self.showOverlay(overlay: overlay ,node: self.moves, text: "moves: 0", fontsize: CGFloat(20), x_relative: 0.5, y_relative: 0.95)
         vie.overlaySKScene = overlay
-
-
-        
     }
     
-    
-    
+    /*
+     *Crea y coloca un SKlabelnode con lo pasado en la escena pasada
+     */
     func showOverlay(overlay:SKScene ,node:SKLabelNode, text:String, fontsize:CGFloat , x_relative:CGFloat , y_relative:CGFloat)
     {
-        //let sp = node
         node.text = text
         node.fontColor = UIColor.white
         node.fontSize = fontsize
-        node.position.x = UIScreen.main.bounds.size.width * x_relative//
+        node.position.x = UIScreen.main.bounds.size.width * x_relative                                                                                  //la posicion se calcula de forma relativa
         node.position.y = UIScreen.main.bounds.size.height * y_relative
-        let fade = [SKAction.fadeAlpha(to: 0.3, duration: 2) ,SKAction.fadeAlpha(to: 1.0, duration: 2)]
+        let fade = [SKAction.fadeAlpha(to: 0.3, duration: 2) ,SKAction.fadeAlpha(to: 1.0, duration: 2)]                                                 //Añade un efecto de fadein/fadeout
         node.run(SKAction.repeatForever(SKAction.sequence(fade)))
         overlay.addChild(node)
-        
     }
     
-
-    
-    
-    
-    
+    /*
+     * Main loop del juego. Consta de las fases de: 
+     *      -configuracion del juego
+     *       -configuracion de la escena
+     *           -hacer rondas hasta que se alcance la vitoria o se pulse salir
+     *
+     *Fases de rondas desglosadas mas adelante
+     */
     func startGameLoop()
     {
         self.setupGame()
         self.setupScene()
-        //self.time_counter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(KnightsGame.updateTimer), userInfo: nil, repeats: true)
-        //self.time?.
         while (true)
         {
             self.doRound()
         }
     }
     
+    /*
+     * implementada en las subclases
+     */
     func setupGame() {}
     
+    
+    /*
+     * Funcionalidad implementada en las subclases. Aqui solo se hace una rotacion inicial del tablero
+     */
     func setupScene()
     {
         self.board?.runAction(SCNAction.rotate(by: 3.1416 * 0.1, around: SCNVector3.init(1.0, -1.0, 0.0), duration: 0.5))
     }
     
+    
+    /*
+     *Carga los modelos cuyo nombbre aparezaca en el array de un fichero 3D, añade color a los modelos y los devuelve en un diccionario catalogados por nombre
+     */
     func loadModelsFromFile(filename:String, names:[String], color:UIColor) -> [String:Piece]
     {
 
         let scene_aux = SCNScene(named: filename)
-        let lambda = { (node:SCNNode, b:UnsafeMutablePointer<ObjCBool>) -> Bool in
-            print(node.name!)
-            //node.position = SCNVector3.init(x: 0, y: 0, z: 0)
-            node.scale = SCNVector3.init(float3.init(1.0))
-
+        let lambda = { (node:SCNNode, b:UnsafeMutablePointer<ObjCBool>) -> Bool in             // funcion que extrae los nodos que coincidan con el nombre
+            node.scale = SCNVector3.init(float3.init(1.0))                                     //Si estan escalados dentro de la escena del fichero los restituye
             if(node.geometry != nil)
             {
                 node.geometry?.firstMaterial?.diffuse.contents = color
             }
             return names.contains(node.name!)
         }
-        let nodes = scene_aux?.rootNode.childNodes(passingTest: lambda)
+        let nodes = scene_aux?.rootNode.childNodes(passingTest: lambda)                         //saca los nodos de la escena del fichero
         var dic:[String:Piece] = [:]
-        for i in nodes!
+        for i in nodes!                                                                         //Por cada nodo sacado crea una pieza diferente
         {
-
-            
-            //i.position = SCNVector3.init(x: 0, y: 0, z: 0)
             let piece:Piece = Piece()
-            piece.node = i
+            piece.node = i                                                                      //Asigna el nodo extraido a la pieza
             piece.node.castsShadow = true
-            //piece.node.geometry = i.geometry.c
-            dic[piece.node.name!] = piece //i.clone() as SCNNode
-            
+            dic[piece.node.name!] = piece
         }
         return dic
     }
     
-    
+    /*
+     *Genera tantos equipos con tantos colores de tantas piezas como los elementos pasados por arrays
+     */
     func generateTeamsPieces(modelsfilename:String ,teams:[String], piecenames:[String],color:[UIColor]) -> [String:Piece]
     {
         var dic:[String:Piece] = [:]
         for i in 0...teams.count - 1
         {
-            let team_pieces = self.loadModelsFromFile(filename: modelsfilename, names: piecenames, color: color[i])
+            let team_pieces = self.loadModelsFromFile(filename: modelsfilename, names: piecenames, color: color[i])         //Cada equipo tiene su propia copia en memoria de las piezas
             
             let lambda = { (a:(key: String, value: Piece)) in
-                a.value.setName(name: teams[i] + "-" + a.value.node.name!)
+                a.value.setName(name: teams[i] + "-" + a.value.node.name!)                                                  //Cada pieza lleva en nombre del equipo delante del suyo
                 a.value.node.geometry?.firstMaterial?.diffuse.contents = color[i]
                 dic[a.value.node.name!] = a.value
             }
@@ -199,28 +170,45 @@ class BoardGameViewController: UIViewController {
         return dic
     }
     
+    /*
+     *Funciones que realiza cada etapa de un turno. La funcionalidad pertenece a la subclase, aqui solo se abre el semaforo para pasar a la siguiente cuando termina
+     */
     
+    /*Etapa de antes de comienzo de turno. reciben el numero del juegador del turno.
+     */
     func beforeTurnStarts(player:Int) -> Bool
     {
         self.before_turn_semaphore.signal()
         return true
     }
     
+    /*
+     * Funcion que indica que el jugador ya ha movido
+     */
     func finalizeTurn()
     {
         self.movement_semaphore.signal()
     }
     
+    /*
+     *Etapa de fin de turno
+     */
     func turnsEnd(player:Int)
     {
         self.turns_end_semaphore.signal()
     }
     
+    /*
+     * Funcion que se llama despues de cada movimiento y dice si la partida se ha ganado.Desde la subclase se debe cabiar el valor del atributo victory para capturar los toques
+     */
     func victoryConditionCheck() -> Bool
     {
         return false
     }
     
+    /*
+     * En caso de ganar el juego se ejecuta esta funcion. Muestra el texto y realiza las animaciones de la victoria
+     */
     func onVictory(winner:Int)
     {
         let view = self.view as! SCNView
@@ -230,11 +218,12 @@ class BoardGameViewController: UIViewController {
         self.showOverlay(overlay: view.overlaySKScene!, node: label, text: "YOU MADE IT!", fontsize: 50, x_relative: 0.5, y_relative: 0.5)
         let label_action = [SKAction.scale(to: 1.5, duration: 0.6), SKAction.scale(to: 0.6, duration: 0.6)]
         label.run(SKAction.repeatForever(SKAction.sequence(label_action)))
-        //view.overlaySKScene?.addChild(label)
-        //self.victory_semaphore.signal()
         self.victory = true
     }
     
+    /*
+     *Funciones que realiza cada etapa de una etapa. La funcionalidad pertenece a la subclase, aqui solo se abre el semaforo para pasar a la siguiente cuando termina
+     */
     func onRoundStarts()
     {
         self.before_round_semaphore.signal()
@@ -245,16 +234,18 @@ class BoardGameViewController: UIViewController {
         self.round_end_semaphore.signal()
     }
     
+    /*
+     * Funcion que ejecuta una ronda por etapas
+     */
     func doRound()
     {
         self.rounds += 1
         self.onRoundStarts()
         self.before_round_semaphore.wait()
-        for i in 0...numplayers
+        for i in 0...numplayers                                                 //Por cada jugador se ejecuta un turno con todas sus etapas
         {
-            self.current_turn_player = i
             self.doTurn(player: i)
-            if(self.victoryConditionCheck())
+            if(self.victoryConditionCheck())                                    //Si despues de un turno se llega ala victoria realiza lo que haya en onvictory y sale al tocar la pantalla
             {
                 self.onVictory(winner: i)
                 self.victory_semaphore.wait()
@@ -265,6 +256,14 @@ class BoardGameViewController: UIViewController {
         self.round_end_semaphore.wait()
     }
     
+    /*
+     *Funcion de jecucion de un turno y sus etapas:
+     *  -Antes del turno
+        -Interacciobn con el juegador
+        - despues del turno
+     *
+     * hasta que no se llame finalizeturn() despues de la fase de interaccion los toques de pantalla se procesan como que forman parte de un turno
+     */
     func doTurn(player:Int)
     {
 
@@ -274,19 +273,22 @@ class BoardGameViewController: UIViewController {
         
         let executes_turn = self.beforeTurnStarts(player: player)
         self.before_turn_semaphore.wait()
-        if(executes_turn == false)
+        if(executes_turn == false)                                              //Si no se da una condicion propicia se salta el turno. Util si ghay dos jugadores y se pueden anular los turnos uno a otro
         {
             return
         }
         self.touchEnabled = true
 
-        self.movement_semaphore.wait()
+        self.movement_semaphore.wait()                                          // Solo procesa los toques durante la ejecucion de un turno
         self.touchEnabled = false
         
         self.turnsEnd(player: player)
         self.turns_end_semaphore.wait()
     }
     
+    /*
+     * Termina un juego
+     */
     func exitToMenu()
     {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -295,12 +297,18 @@ class BoardGameViewController: UIViewController {
         return
     }
     
+    /*
+     * Funcionalidad en la subclase donde procesan los toques. Aqui solo da por terminada la fase
+     */
     func handleTouchOnTurn(_ gestureRecognize: UIGestureRecognizer)
     {
-        print("asdfasdf")
         self.finalizeTurn()
     }
     
+    
+    /*
+     *Ilumina todos las casillas pasadas en el array a la vez
+     **/
     func highLightSquares(squares:[(x:Int, y:Int)], color:UIColor, duration:Float)
     {
         let lambda = {
@@ -308,9 +316,12 @@ class BoardGameViewController: UIViewController {
             let pos = squares[iter]
             self.highLightModel(model: (self.board?.board[pos.x][pos.y]?.node)! , color: color, duration: duration)
         }
-        DispatchQueue.concurrentPerform(iterations: squares.count, execute: lambda)
+        DispatchQueue.concurrentPerform(iterations: squares.count, execute: lambda)     //Ejcuta en paralelo todas las iluminaciones
     }
 
+    /*
+     * True si dentro del arra existe el elemento (x:Int, y:Int) paasado
+     */
     func squareArrayContains(array:[(x:Int, y:Int)], element:(x:Int, y:Int) ) -> Bool
     {
             let compare_lambda =
@@ -321,11 +332,13 @@ class BoardGameViewController: UIViewController {
         return  array.contains(where: compare_lambda)
     }
     
+    /*
+     * Ilumina cambiando las propiedades de la iluminacion emisiva del material de  la geometria del nodo pasado y todos sus hijos
+     */
     func highLightModel(model:SCNNode, color:UIColor, duration:Float)
     {
         
        let lambda =  { (node:SCNNode, b:UnsafeMutablePointer<ObjCBool>)-> Void in
-            //let node = model
             if(node.geometry == nil)
             {
                 return
@@ -334,15 +347,12 @@ class BoardGameViewController: UIViewController {
             SCNTransaction.begin()
             SCNTransaction.animationDuration = CFTimeInterval(duration)
             SCNTransaction.completionBlock = {
-            SCNTransaction.begin()
+            SCNTransaction.begin()                                                      //Vuelta a la normalidad
             SCNTransaction.animationDuration = CFTimeInterval(duration)
             material.emission.contents = UIColor.black
             SCNTransaction.commit()
-            //model.runAction(SCNAction.fadeOut(duration: 20))
         }
-        
         material.emission.contents = color
-        
         SCNTransaction.commit()
         }
         model.enumerateChildNodes(lambda)
@@ -351,64 +361,29 @@ class BoardGameViewController: UIViewController {
     func getTouchedElements(_ gestureRecognize: UIGestureRecognizer) -> [SCNHitTestResult]
     {
         let scnView = self.view as! SCNView
-        
-        // check what nodes are tapped
         let p = gestureRecognize.location(in: scnView)
         let hitResults = scnView.hitTest(p, options: [:])
         return hitResults
     }
     
-
+    /*
+     * Funcion que sirve como colector de los toques. Segun el estado del juego delega su procesamiento en otras funciones
+     */
     
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView 
         let scnView = self.view as! SCNView
         let point = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(point, options: [:])
         let con_point = scnView.overlaySKScene?.convertPoint(fromView: point)
-        
-        
-        if(self.exitButton.contains(con_point!) || self.victory)
+        if(self.exitButton.contains(con_point!) || self.victory)                                //Sise ha tocado el boton exit o ya se ha ganado sale del juego
         {
             self.exitToMenu()
         }
-        
-        if(self.touchEnabled)
+        if(self.touchEnabled)                                                                   //Si esta en medio de un turno llama a la funcion que debe ser completada en la subclase
         {
             self.handleTouchOnTurn(gestureRecognize)
         }
         return
-        
-        
-        
-        
-        // check what nodes are tapped
-
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result: AnyObject = hitResults[0]
-            
-            // get its material
-            let material = result.node!.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
-        }
     }
     
     override var shouldAutorotate: Bool {

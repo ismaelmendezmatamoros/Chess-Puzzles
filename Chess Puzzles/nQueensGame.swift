@@ -82,7 +82,7 @@ class nQueensGame: BoardGameViewController
         self.scene.rootNode.addChildNode(board!)
         self.board?.addChildNode(lightNode)
         self.board?.position.y = (pieces[piece_name]?.node.boundingBox.min.y)! - (board?.boundingBox.max.y)!
-        self.showExitButton()
+        self.showOverlays()
         super.setupScene()
     }
     

@@ -12,7 +12,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="MenuScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="BrainGames3D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="Chess_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -30,7 +30,7 @@
         <!--Queens Game-->
         <scene sceneID="47S-Q1-UA3">
             <objects>
-                <viewController storyboardIdentifier="QueensGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hht-Ue-u4l" customClass="nQueensGame" customModule="BrainGames3D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QueensGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hht-Ue-u4l" customClass="nQueensGame" customModule="Chess_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3mV-6g-a4h"/>
                         <viewControllerLayoutGuide type="bottom" id="KP7-QJ-nzC"/>
@@ -48,7 +48,7 @@
         <!--Bishops Game-->
         <scene sceneID="eZH-RB-gYS">
             <objects>
-                <viewController storyboardIdentifier="BishopsGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x2N-qO-4h9" customClass="BishopsGame" customModule="BrainGames3D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BishopsGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x2N-qO-4h9" customClass="BishopsGame" customModule="Chess_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8co-qP-C9M"/>
                         <viewControllerLayoutGuide type="bottom" id="X4p-7k-8BL"/>
@@ -66,7 +66,7 @@
         <!--Knights Game-->
         <scene sceneID="x2e-m4-J5R">
             <objects>
-                <viewController storyboardIdentifier="KnightsGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TS8-bY-KCP" customClass="KnightsGame" customModule="BrainGames3D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KnightsGameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TS8-bY-KCP" customClass="KnightsGame" customModule="Chess_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pJF-eq-LyL"/>
                         <viewControllerLayoutGuide type="bottom" id="5cp-O9-2cx"/>
@@ -84,7 +84,7 @@
         <!--Knights36 Game-->
         <scene sceneID="9kX-bv-nYH">
             <objects>
-                <viewController storyboardIdentifier="Knights36GameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uvN-js-ST3" customClass="Knights36Game" customModule="BrainGames3D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Knights36GameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uvN-js-ST3" customClass="Knights36Game" customModule="Chess_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jwY-kx-uOd"/>
                         <viewControllerLayoutGuide type="bottom" id="rta-Se-x65"/>

@@ -23,7 +23,7 @@ class BoardGameViewController: UIViewController, GADInterstitialDelegate {
     var interstitial: GADInterstitial!
     
     let adUnitID = "ca-app-pub-1495047417563453/2347831524"
-    let add_interval = 20
+    let add_interval = 260
     private var semaphore:semaphore_t = semaphore_t()
     var numplayers:Int = 0                                                              //numero de jugadores del juego
     var turns:Int = 0                                                                   //turnos efectuados

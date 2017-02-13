@@ -11,15 +11,19 @@ import QuartzCore
 import SceneKit
 import SpriteKit
 import Foundation
-
+import  GoogleMobileAds
 
 /*
  * Clase base para cada uno de los juegos. En esta clase se realiza el main loop de cada juego con cada uno de sus pasos
  *
  */
 
-class BoardGameViewController: UIViewController {
+class BoardGameViewController: UIViewController, GADInterstitialDelegate {
     
+    var interstitial: GADInterstitial!
+    
+    let adUnitID = "ca-app-pub-1495047417563453/2347831524"
+    let add_interval = 20
     private var semaphore:semaphore_t = semaphore_t()
     var numplayers:Int = 0                                                              //numero de jugadores del juego
     var turns:Int = 0                                                                   //turnos efectuados
@@ -61,7 +65,15 @@ class BoardGameViewController: UIViewController {
 
         scnView.addGestureRecognizer(tapGesture)
         self.performSelector(inBackground: #selector(BoardGameViewController.startGameLoop), with: nil)                    //Lanza la ejecucion del main loop del juego.ver funcion mas adelante
- }
+        self.performSelector(inBackground: #selector(BoardGameViewController.startAddLoop), with: nil)
+    }
+    
+    func startAddLoop(){
+        while(true){
+            sleep(UInt32(self.add_interval))
+            self.interstitial = createAndLoadInterstitial()
+        }
+    }
     
     /*
      *Mustra el boton de exit y el numero de turnos
@@ -78,6 +90,35 @@ class BoardGameViewController: UIViewController {
     /*
      *Crea y coloca un SKlabelnode con lo pasado en la escena pasada
      */
+    ////////////
+    
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial =
+            GADInterstitial(adUnitID: adUnitID)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        if self.interstitial.isReady {
+            self.interstitial.present(fromRootViewController: self)
+        }    }
+    
+    func interstitialDidDismissScreen(_ interstitial: GADInterstitial) {
+        self.perform(#selector(createAndLoadInterstitial), with: nil, afterDelay: TimeInterval(add_interval))
+    }
+    
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        // Retrying failed interstitial loads is a rudimentary way of handling these errors.
+        // For more fine-grained error handling, take a look at the values in GADErrorCode.
+        self.interstitial = createAndLoadInterstitial()
+    }    ////////////////
+    
+    
     func showOverlay(overlay:SKScene ,node:SKLabelNode, text:String, fontsize:CGFloat , x_relative:CGFloat , y_relative:CGFloat)
     {
         node.text = text

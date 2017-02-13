@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104E7DAD9D2DFF5FF3AB3775 /* Pods_Chess_PuzzlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100C3206B40D91563950875C /* Pods_Chess_PuzzlesTests.framework */; };
+		48427BE81E51139400752E6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48427BE71E51139400752E6A /* GoogleService-Info.plist */; };
 		4876DDF81E316881002229D0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4876DDF71E316881002229D0 /* art.scnassets */; };
 		4876DDFF1E316881002229D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4876DDFE1E316881002229D0 /* Assets.xcassets */; };
 		4876DE0D1E316881002229D0 /* Chess_PuzzlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876DE0C1E316881002229D0 /* Chess_PuzzlesTests.swift */; };
@@ -30,14 +32,17 @@
 		4876DE4B1E316B17002229D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876DE491E316B17002229D0 /* AppDelegate.swift */; };
 		4876DE4C1E316B17002229D0 /* SceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE4A1E316B17002229D0 /* SceneView.xib */; };
 		4876DE661E316B87002229D0 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE5E1E316B87002229D0 /* bg.png */; };
-		4876DE671E316B87002229D0 /* bishop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE5F1E316B87002229D0 /* bishop.png */; };
 		4876DE681E316B87002229D0 /* brainguy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE601E316B87002229D0 /* brainguy.png */; };
 		4876DE691E316B87002229D0 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE611E316B87002229D0 /* cancel.png */; };
-		4876DE6A1E316B87002229D0 /* knight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE621E316B87002229D0 /* knight.png */; };
-		4876DE6B1E316B87002229D0 /* knights36.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE631E316B87002229D0 /* knights36.png */; };
 		4876DE6C1E316B87002229D0 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE641E316B87002229D0 /* ok.png */; };
-		4876DE6D1E316B87002229D0 /* reinas.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE651E316B87002229D0 /* reinas.gif */; };
 		4876DE701E316BE9002229D0 /* Piecescollada-3.dae in Resources */ = {isa = PBXBuildFile; fileRef = 4876DE6F1E316BE9002229D0 /* Piecescollada-3.dae */; };
+		48BE48791E520A0000E5531E /* bishop.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48751E520A0000E5531E /* bishop.png */; };
+		48BE487A1E520A0000E5531E /* knight.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48761E520A0000E5531E /* knight.png */; };
+		48BE487B1E520A0000E5531E /* knights36.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48771E520A0000E5531E /* knights36.png */; };
+		48BE487C1E520A0000E5531E /* reinas.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48781E520A0000E5531E /* reinas.png */; };
+		48BE48801E52274E00E5531E /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 48BE487F1E52274E00E5531E /* ios */; };
+		6F062F95E7E4C05F653C0DAD /* Pods_Chess_PuzzlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ABEE6750AB6E3841BD37E2 /* Pods_Chess_PuzzlesUITests.framework */; };
+		F0511A09D066D946BBF9685E /* Pods_Chess_Puzzles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AFD009A76B8B8F1A91303E /* Pods_Chess_Puzzles.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03ABEE6750AB6E3841BD37E2 /* Pods_Chess_PuzzlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_PuzzlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		100C3206B40D91563950875C /* Pods_Chess_PuzzlesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_PuzzlesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43AFD009A76B8B8F1A91303E /* Pods_Chess_Puzzles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_Puzzles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48427BE71E51139400752E6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4876DDF21E316881002229D0 /* Chess Puzzles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Puzzles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4876DDF71E316881002229D0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		4876DDFE1E316881002229D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,14 +97,21 @@
 		4876DE491E316B17002229D0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4876DE4A1E316B17002229D0 /* SceneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneView.xib; sourceTree = "<group>"; };
 		4876DE5E1E316B87002229D0 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		4876DE5F1E316B87002229D0 /* bishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bishop.png; sourceTree = "<group>"; };
 		4876DE601E316B87002229D0 /* brainguy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brainguy.png; sourceTree = "<group>"; };
 		4876DE611E316B87002229D0 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		4876DE621E316B87002229D0 /* knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knight.png; sourceTree = "<group>"; };
-		4876DE631E316B87002229D0 /* knights36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knights36.png; sourceTree = "<group>"; };
 		4876DE641E316B87002229D0 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
-		4876DE651E316B87002229D0 /* reinas.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reinas.gif; sourceTree = "<group>"; };
 		4876DE6F1E316BE9002229D0 /* Piecescollada-3.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = "Piecescollada-3.dae"; sourceTree = "<group>"; };
+		48BE48751E520A0000E5531E /* bishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bishop.png; sourceTree = "<group>"; };
+		48BE48761E520A0000E5531E /* knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knight.png; sourceTree = "<group>"; };
+		48BE48771E520A0000E5531E /* knights36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knights36.png; sourceTree = "<group>"; };
+		48BE48781E520A0000E5531E /* reinas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reinas.png; sourceTree = "<group>"; };
+		48BE487F1E52274E00E5531E /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = Assets.xcassets/AppIcon.appiconset/ios; sourceTree = "<group>"; };
+		5E6ED6EDCABEB04046AB4C3F /* Pods-Chess Puzzles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.debug.xcconfig"; sourceTree = "<group>"; };
+		71248D3D5A8D44EABC1F8706 /* Pods-Chess Puzzles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.release.xcconfig"; sourceTree = "<group>"; };
+		797397EC7AC1177ADEB5993A /* Pods-Chess PuzzlesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests.release.xcconfig"; sourceTree = "<group>"; };
+		95D44FE0A9C861F9B9EE360B /* Pods-Chess PuzzlesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesUITests/Pods-Chess PuzzlesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF30F255928DAAACBCA36298 /* Pods-Chess PuzzlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesUITests/Pods-Chess PuzzlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD30B47A1075D8D5002A74DE /* Pods-Chess PuzzlesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4876DE481E316980002229D0 /* SpriteKit.framework in Frameworks */,
+				F0511A09D066D946BBF9685E /* Pods_Chess_Puzzles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104E7DAD9D2DFF5FF3AB3775 /* Pods_Chess_PuzzlesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F062F95E7E4C05F653C0DAD /* Pods_Chess_PuzzlesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +151,7 @@
 				4876DE161E316881002229D0 /* Chess PuzzlesUITests */,
 				4876DDF31E316881002229D0 /* Products */,
 				4876DE461E316980002229D0 /* Frameworks */,
+				8D1C838D6419195DF0B8594C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +168,7 @@
 		4876DDF41E316881002229D0 /* Chess Puzzles */ = {
 			isa = PBXGroup;
 			children = (
+				48427BE71E51139400752E6A /* GoogleService-Info.plist */,
 				4876DE731E316C68002229D0 /* Menu */,
 				4876DE721E316C3B002229D0 /* Pieces */,
 				4876DE711E316C1B002229D0 /* Games */,
@@ -159,6 +180,7 @@
 				4876DE421E316926002229D0 /* Main.storyboard */,
 				4876DDF71E316881002229D0 /* art.scnassets */,
 				4876DDFE1E316881002229D0 /* Assets.xcassets */,
+				48BE487F1E52274E00E5531E /* ios */,
 				4876DE031E316881002229D0 /* Info.plist */,
 				4876DE251E316918002229D0 /* Chess Puzzles-Bridging-Header.h */,
 			);
@@ -187,6 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				4876DE471E316980002229D0 /* SpriteKit.framework */,
+				43AFD009A76B8B8F1A91303E /* Pods_Chess_Puzzles.framework */,
+				100C3206B40D91563950875C /* Pods_Chess_PuzzlesTests.framework */,
+				03ABEE6750AB6E3841BD37E2 /* Pods_Chess_PuzzlesUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,14 +219,14 @@
 		4876DE4D1E316B43002229D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				48BE48751E520A0000E5531E /* bishop.png */,
+				48BE48761E520A0000E5531E /* knight.png */,
+				48BE48771E520A0000E5531E /* knights36.png */,
+				48BE48781E520A0000E5531E /* reinas.png */,
 				4876DE5E1E316B87002229D0 /* bg.png */,
-				4876DE5F1E316B87002229D0 /* bishop.png */,
 				4876DE601E316B87002229D0 /* brainguy.png */,
 				4876DE611E316B87002229D0 /* cancel.png */,
-				4876DE621E316B87002229D0 /* knight.png */,
-				4876DE631E316B87002229D0 /* knights36.png */,
 				4876DE641E316B87002229D0 /* ok.png */,
-				4876DE651E316B87002229D0 /* reinas.gif */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -248,6 +273,19 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		8D1C838D6419195DF0B8594C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E6ED6EDCABEB04046AB4C3F /* Pods-Chess Puzzles.debug.xcconfig */,
+				71248D3D5A8D44EABC1F8706 /* Pods-Chess Puzzles.release.xcconfig */,
+				CD30B47A1075D8D5002A74DE /* Pods-Chess PuzzlesTests.debug.xcconfig */,
+				797397EC7AC1177ADEB5993A /* Pods-Chess PuzzlesTests.release.xcconfig */,
+				AF30F255928DAAACBCA36298 /* Pods-Chess PuzzlesUITests.debug.xcconfig */,
+				95D44FE0A9C861F9B9EE360B /* Pods-Chess PuzzlesUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,9 +293,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4876DE1C1E316881002229D0 /* Build configuration list for PBXNativeTarget "Chess Puzzles" */;
 			buildPhases = (
+				4C1CCC0ABE07F749B2B65489 /* [CP] Check Pods Manifest.lock */,
 				4876DDEE1E316881002229D0 /* Sources */,
 				4876DDEF1E316881002229D0 /* Frameworks */,
 				4876DDF01E316881002229D0 /* Resources */,
+				D794297A06C53B8C01A0E9EB /* [CP] Embed Pods Frameworks */,
+				335190FFC912FFDD53AF26B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,9 +313,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4876DE1F1E316881002229D0 /* Build configuration list for PBXNativeTarget "Chess PuzzlesTests" */;
 			buildPhases = (
+				40D8C93F6BD7BE874CA75D70 /* [CP] Check Pods Manifest.lock */,
 				4876DE041E316881002229D0 /* Sources */,
 				4876DE051E316881002229D0 /* Frameworks */,
 				4876DE061E316881002229D0 /* Resources */,
+				BF0E41C8C1AAE130B94D1DD3 /* [CP] Embed Pods Frameworks */,
+				7825F18A48C3A8DD05574B7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,9 +334,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4876DE221E316881002229D0 /* Build configuration list for PBXNativeTarget "Chess PuzzlesUITests" */;
 			buildPhases = (
+				33FF703ADF4484F4CF6CBDE1 /* [CP] Check Pods Manifest.lock */,
 				4876DE0F1E316881002229D0 /* Sources */,
 				4876DE101E316881002229D0 /* Frameworks */,
 				4876DE111E316881002229D0 /* Resources */,
+				F75E4144E7469D534E8D6977 /* [CP] Embed Pods Frameworks */,
+				A8A2938DC5F996C81BD69646 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -356,20 +403,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BE487A1E520A0000E5531E /* knight.png in Resources */,
 				4876DE681E316B87002229D0 /* brainguy.png in Resources */,
 				4876DE441E316926002229D0 /* LaunchScreen.storyboard in Resources */,
+				48427BE81E51139400752E6A /* GoogleService-Info.plist in Resources */,
+				48BE487C1E520A0000E5531E /* reinas.png in Resources */,
 				4876DDF81E316881002229D0 /* art.scnassets in Resources */,
+				48BE487B1E520A0000E5531E /* knights36.png in Resources */,
 				4876DE661E316B87002229D0 /* bg.png in Resources */,
-				4876DE6A1E316B87002229D0 /* knight.png in Resources */,
-				4876DE6B1E316B87002229D0 /* knights36.png in Resources */,
 				4876DE701E316BE9002229D0 /* Piecescollada-3.dae in Resources */,
 				4876DDFF1E316881002229D0 /* Assets.xcassets in Resources */,
 				4876DE4C1E316B17002229D0 /* SceneView.xib in Resources */,
 				4876DE691E316B87002229D0 /* cancel.png in Resources */,
 				4876DE451E316926002229D0 /* Main.storyboard in Resources */,
-				4876DE671E316B87002229D0 /* bishop.png in Resources */,
+				48BE48791E520A0000E5531E /* bishop.png in Resources */,
+				48BE48801E52274E00E5531E /* ios in Resources */,
 				4876DE6C1E316B87002229D0 /* ok.png in Resources */,
-				4876DE6D1E316B87002229D0 /* reinas.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +437,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		335190FFC912FFDD53AF26B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33FF703ADF4484F4CF6CBDE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		40D8C93F6BD7BE874CA75D70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C1CCC0ABE07F749B2B65489 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7825F18A48C3A8DD05574B7A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8A2938DC5F996C81BD69646 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess PuzzlesUITests/Pods-Chess PuzzlesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF0E41C8C1AAE130B94D1DD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D794297A06C53B8C01A0E9EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F75E4144E7469D534E8D6977 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess PuzzlesUITests/Pods-Chess PuzzlesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4876DDEE1E316881002229D0 /* Sources */ = {
@@ -555,12 +742,13 @@
 		};
 		4876DE1D1E316881002229D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6ED6EDCABEB04046AB4C3F /* Pods-Chess Puzzles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Chess Puzzles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "master.Chess-Puzzles";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Chess-Puzzles.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Chess Puzzles/Chess Puzzles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -570,12 +758,13 @@
 		};
 		4876DE1E1E316881002229D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71248D3D5A8D44EABC1F8706 /* Pods-Chess Puzzles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Chess Puzzles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "master.Chess-Puzzles";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Chess-Puzzles.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Chess Puzzles/Chess Puzzles-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -584,6 +773,7 @@
 		};
 		4876DE201E316881002229D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD30B47A1075D8D5002A74DE /* Pods-Chess PuzzlesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -598,6 +788,7 @@
 		};
 		4876DE211E316881002229D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797397EC7AC1177ADEB5993A /* Pods-Chess PuzzlesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -612,6 +803,7 @@
 		};
 		4876DE231E316881002229D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF30F255928DAAACBCA36298 /* Pods-Chess PuzzlesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Chess PuzzlesUITests/Info.plist";
@@ -625,6 +817,7 @@
 		};
 		4876DE241E316881002229D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95D44FE0A9C861F9B9EE360B /* Pods-Chess PuzzlesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Chess PuzzlesUITests/Info.plist";

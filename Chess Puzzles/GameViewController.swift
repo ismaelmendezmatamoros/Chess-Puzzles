@@ -10,11 +10,23 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import SceneKit
+import GoogleMobileAds
+class GameViewController: UIViewController, GADInterstitialDelegate {
 
-class GameViewController: UIViewController {
-
+var interstitial: GADInterstitial!
+    
+    let adUnitID = "ca-app-pub-1495047417563453/2347831524"
+    static var first:Bool = true
+    
     override func viewDidLoad() {  
          super.viewDidLoad()
+        
+
+        //sleep(5000)
+        if !GameViewController.first {
+        self.interstitial = createAndLoadInterstitial()
+        } /////////
+        GameViewController.first = false
         
         if let view = self.view as! SKView? {
 
@@ -23,13 +35,38 @@ class GameViewController: UIViewController {
             scene.scaleMode = .aspectFill
             view.presentScene(scene)
             view.ignoresSiblingOrder = false
-            
             view.showsFPS = true
             view.showsNodeCount = true
  
         }
     }
 
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial =
+            GADInterstitial(adUnitID: adUnitID)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    //////////
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        if self.interstitial.isReady {
+            self.interstitial.present(fromRootViewController: self)
+        }    }
+    
+    func interstitialDidDismissScreen(_ interstitial: GADInterstitial) {
+
+       }
+
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        // Retrying failed interstitial loads is a rudimentary way of handling these errors.
+        // For more fine-grained error handling, take a look at the values in GADErrorCode.
+        self.interstitial = createAndLoadInterstitial()
+    }
+    
+    ///////////
     override var shouldAutorotate: Bool {
         return true
     }

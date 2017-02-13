@@ -9,8 +9,7 @@
 import SpriteKit
 import GameplayKit
 import SceneKit
-
-
+import UIKit
 //Clase del menu inicial
 
 class GameScene: SKScene {  
@@ -44,7 +43,7 @@ class GameScene: SKScene {
     private var game_description:[String:String] = [:]
     private var game_description_labelnode:[String:SKLabelNode] = [:]                           //Diccionario con los labels de las descripciones segun nombre del juego
 
-    let image_names = ["reinas.gif", "bishop.png", "knight.png", "knights36.png"]               //imagenes de los botones de seleccion
+    let image_names = ["reinas", "bishop", "knight", "knights36"]               //imagenes de los botones de seleccion
     let handler_functions = [#selector(GameScene.nQueensGame(button:)),                         //Selectores de las funciones que activa cada boton. Ya no tiene sentido pero se mantiene para mantener la integridad
                              #selector(GameScene.bishopsGame(button:)),
                              #selector(GameScene.KnightsGame(button:)),
@@ -233,10 +232,12 @@ class GameScene: SKScene {
         self.start?.fontSize = 20
         self.start?.position = absolutePosition(relative: CGPoint(x:0, y: -0.1))
       
+
         self.title = SKLabelNode()
         self.title?.text = "CHESS PUZZLES"
         self.title?.fontName = "Chalkduster"
-        self.title?.fontSize = 80
+ 
+        self.title?.fontSize = 65
         self.title?.position = absolutePosition(relative: CGPoint(x:0, y: -0.15))
         self.title?.setScale(0.0)
 

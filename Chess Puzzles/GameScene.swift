@@ -189,7 +189,7 @@ class GameScene: SKScene {
         }
         
         let step2 = {                                                               //El titulo se va hacia arriba
-            self.title?.run(SKAction.move(to: self.absolutePosition(relative: CGPoint(x:0, y:0.30)), duration:0.5 ), completion: step3)
+            self.title?.run(SKAction.move(to: self.absolutePosition(relative: CGPoint(x:0, y:0.34)), duration:0.5 ), completion: step3)
             print("")
         }
         let step1 = {

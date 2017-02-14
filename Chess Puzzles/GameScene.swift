@@ -111,7 +111,7 @@ class GameScene: SKScene {
         self.size = CGSize(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)                       //Realiza las inicializaciones iniciales
         self.relative_height_Max = 1.0
         self.relative_width_Max = Float(self.size.width) / Float(self.size.height)
-        self.backgroundColor = SKColor(red: 107/255.0, green: 88/255.0, blue: 193/255.0, alpha: 1.0)
+        self.backgroundColor = SKColor.black //(red: 107/255.0, green: 88/255.0, blue: 193/255.0, alpha: 1.0)
         self.center = CGPoint(x: self.size.width / 2, y: self.size.height / 2 )
         self.anchorPoint = CGPoint(x: 0.5 , y: 0.5 )
         self.showSplashScreen()                                                                                         //Crea el menu de confirmacion para luego
@@ -209,14 +209,14 @@ class GameScene: SKScene {
         self.veil.color = SKColor.black
         self.veil.alpha = 0.8
         
-        self.backgroundColor = SKColor(red: 107/255.0, green: 88/255.0, blue: 193/255.0, alpha: 1.0)            //Dibuja el findo y escala el muñeco para que entre en el alto proporcionadamente
+        self.backgroundColor = SKColor.black //(red: 107/255.0, green: 88/255.0, blue: 193/255.0, alpha: 1.0)            //Dibuja el findo y escala el muñeco para que entre en el alto proporcionadamente
         self.brainGuy = SKSpriteNode(imageNamed: brainGuyName)
         self.bgImage = SKSpriteNode(imageNamed: bgImageName)
         self.bgImage.position = CGPoint.zero
         self.bgImage.size.width = self.size.width // /= self.bgImage.size.height /  self.size.height                                  //calcula la escala
         self.bgImage.size.height = self.size.height
         //////////
-        let seq = [SKAction.fadeAlpha(to: 0.9, duration: 0.7), SKAction.fadeAlpha(to: 1.0, duration: 0.7)]
+        let seq = [SKAction.fadeAlpha(to: 0.75, duration: 1.0), SKAction.fadeAlpha(to: 1.0, duration: 1.0)]
         self.bgImage.run(SKAction.repeatForever(SKAction.sequence(seq )))
         //////////
         var  brainguy_animation = [SKAction.rotate(byAngle: -0.30, duration: 0.7), SKAction.rotate(byAngle: 0.30, duration: 0.7)]

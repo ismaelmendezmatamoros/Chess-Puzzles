@@ -42,7 +42,7 @@ class GameScene: SKScene {
     private var game_selection_cancel_node = GameButton(imageNamed: "cancel.png")               //boton ok de la confirmacion de juego
     private var game_description:[String:String] = [:]
     private var game_description_labelnode:[String:SKLabelNode] = [:]                           //Diccionario con los labels de las descripciones segun nombre del juego
-
+    var exitButton:SKLabelNode = SKLabelNode()
     let image_names = ["reinas", "bishop", "knight", "knights36"]               //imagenes de los botones de seleccion
     let handler_functions = [#selector(GameScene.nQueensGame(button:)),                         //Selectores de las funciones que activa cada boton. Ya no tiene sentido pero se mantiene para mantener la integridad
                              #selector(GameScene.bishopsGame(button:)),
@@ -236,12 +236,18 @@ class GameScene: SKScene {
         self.start?.fontSize = 20
         self.start?.position = absolutePosition(relative: CGPoint(x:0, y: -0.2))
       
-        /*
-        self.title = SKLabelNode()
-        self.title?.text = "CHESS PUZZLES"
-        self.title?.fontName = "Chalkduster"
- 
-        self.title?.fontSize = 65*/
+        ////////////////////////
+        exitButton.text = "exit"
+        exitButton.fontColor = UIColor.white
+        exitButton.fontSize = 30
+        exitButton.position.x = self.size.width * 0.45                                                                                //la posicion se calcula de forma relativa
+        exitButton.position.y = -self.size.height * 0.45
+        let fade = [SKAction.fadeAlpha(to: 0.3, duration: 2) ,SKAction.fadeAlpha(to: 1.0, duration: 2)]                                                 //Añade un efecto de fadein/fadeout
+        exitButton.run(SKAction.repeatForever(SKAction.sequence(fade)))
+        
+        
+        ////////////////////////////
+        
         self.title = SKSpriteNode(imageNamed: "title_text_white.png")
         self.title?.position.x = CGPoint.zero.x
         self.title?.position.y = CGPoint.zero.y
@@ -271,8 +277,10 @@ class GameScene: SKScene {
         self.addChild(self.bgImage)*/
         self.addChild(self.bgImage)
         self.addChild(self.brainGuy)
+        self.addChild(self.exitButton)
         self.addChild(self.veil)
         self.addChild((self.title)!)
+        
         self.title!.addChild((self.start!))
         
     }
@@ -434,6 +442,9 @@ class GameScene: SKScene {
         break
             
         case status.GAME_SELECT_SCREEN:                                                                                     //Pantalla de seleccion de juego. Lanza el handler del boton
+            if self.exitButton.contains(pos){
+                exit(0)
+            }
             for i in self.controls
             {
                 if(i.isHidden)

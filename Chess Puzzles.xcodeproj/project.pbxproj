@@ -10,7 +10,6 @@
 		104E7DAD9D2DFF5FF3AB3775 /* Pods_Chess_PuzzlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100C3206B40D91563950875C /* Pods_Chess_PuzzlesTests.framework */; };
 		48427BE81E51139400752E6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48427BE71E51139400752E6A /* GoogleService-Info.plist */; };
 		4876DDF81E316881002229D0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4876DDF71E316881002229D0 /* art.scnassets */; };
-		4876DDFF1E316881002229D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4876DDFE1E316881002229D0 /* Assets.xcassets */; };
 		4876DE0D1E316881002229D0 /* Chess_PuzzlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876DE0C1E316881002229D0 /* Chess_PuzzlesTests.swift */; };
 		4876DE181E316881002229D0 /* Chess_PuzzlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876DE171E316881002229D0 /* Chess_PuzzlesUITests.swift */; };
 		4876DE331E316918002229D0 /* Bishop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876DE261E316918002229D0 /* Bishop.swift */; };
@@ -40,7 +39,19 @@
 		48BE487A1E520A0000E5531E /* knight.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48761E520A0000E5531E /* knight.png */; };
 		48BE487B1E520A0000E5531E /* knights36.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48771E520A0000E5531E /* knights36.png */; };
 		48BE487C1E520A0000E5531E /* reinas.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48781E520A0000E5531E /* reinas.png */; };
-		48BE48801E52274E00E5531E /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 48BE487F1E52274E00E5531E /* ios */; };
+		48BE48821E526C3600E5531E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48811E526C3600E5531E /* Assets.xcassets */; };
+		48BE488D1E526C5500E5531E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48831E526C5500E5531E /* AppIcon.appiconset */; };
+		48BE488E1E526C5500E5531E /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48841E526C5500E5531E /* Icon-60.png */; };
+		48BE488F1E526C5500E5531E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48851E526C5500E5531E /* Icon-72.png */; };
+		48BE48901E526C5500E5531E /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48861E526C5500E5531E /* Icon-72@2x.png */; };
+		48BE48911E526C5500E5531E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48871E526C5500E5531E /* Icon@2x.png */; };
+		48BE48921E526C5500E5531E /* ItunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48881E526C5500E5531E /* ItunesArtwork.png */; };
+		48BE48931E526C5500E5531E /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE48891E526C5500E5531E /* Icon-Small-50.png */; };
+		48BE48941E526C5500E5531E /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE488A1E526C5500E5531E /* Icon-Small-50@2x.png */; };
+		48BE48951E526C5500E5531E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE488B1E526C5500E5531E /* Icon.png */; };
+		48BE48961E526C5500E5531E /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE488C1E526C5500E5531E /* ItunesArtwork@2x.png */; };
+		48C6F9121E535BCF000D23BC /* title_text_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C6F9101E535BCF000D23BC /* title_text_black.png */; };
+		48C6F9131E535BCF000D23BC /* title_text_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C6F9111E535BCF000D23BC /* title_text_white.png */; };
 		6F062F95E7E4C05F653C0DAD /* Pods_Chess_PuzzlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ABEE6750AB6E3841BD37E2 /* Pods_Chess_PuzzlesUITests.framework */; };
 		F0511A09D066D946BBF9685E /* Pods_Chess_Puzzles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AFD009A76B8B8F1A91303E /* Pods_Chess_Puzzles.framework */; };
 /* End PBXBuildFile section */
@@ -69,7 +80,6 @@
 		48427BE71E51139400752E6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4876DDF21E316881002229D0 /* Chess Puzzles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Puzzles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4876DDF71E316881002229D0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		4876DDFE1E316881002229D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4876DE031E316881002229D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4876DE081E316881002229D0 /* Chess PuzzlesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chess PuzzlesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4876DE0C1E316881002229D0 /* Chess_PuzzlesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess_PuzzlesTests.swift; sourceTree = "<group>"; };
@@ -105,7 +115,19 @@
 		48BE48761E520A0000E5531E /* knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knight.png; sourceTree = "<group>"; };
 		48BE48771E520A0000E5531E /* knights36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knights36.png; sourceTree = "<group>"; };
 		48BE48781E520A0000E5531E /* reinas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reinas.png; sourceTree = "<group>"; };
-		48BE487F1E52274E00E5531E /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = Assets.xcassets/AppIcon.appiconset/ios; sourceTree = "<group>"; };
+		48BE48811E526C3600E5531E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		48BE48831E526C5500E5531E /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = Assets.xcassets/AppIcon.appiconset/AppIcon.appiconset; sourceTree = "<group>"; };
+		48BE48841E526C5500E5531E /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-60.png"; sourceTree = "<group>"; };
+		48BE48851E526C5500E5531E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-72.png"; sourceTree = "<group>"; };
+		48BE48861E526C5500E5531E /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-72@2x.png"; sourceTree = "<group>"; };
+		48BE48871E526C5500E5531E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon@2x.png"; sourceTree = "<group>"; };
+		48BE48881E526C5500E5531E /* ItunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ItunesArtwork.png; path = Assets.xcassets/AppIcon.appiconset/ItunesArtwork.png; sourceTree = "<group>"; };
+		48BE48891E526C5500E5531E /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-Small-50.png"; sourceTree = "<group>"; };
+		48BE488A1E526C5500E5531E /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		48BE488B1E526C5500E5531E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Assets.xcassets/AppIcon.appiconset/Icon.png; sourceTree = "<group>"; };
+		48BE488C1E526C5500E5531E /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ItunesArtwork@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png"; sourceTree = "<group>"; };
+		48C6F9101E535BCF000D23BC /* title_text_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_text_black.png; sourceTree = "<group>"; };
+		48C6F9111E535BCF000D23BC /* title_text_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_text_white.png; sourceTree = "<group>"; };
 		5E6ED6EDCABEB04046AB4C3F /* Pods-Chess Puzzles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.debug.xcconfig"; sourceTree = "<group>"; };
 		71248D3D5A8D44EABC1F8706 /* Pods-Chess Puzzles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.release.xcconfig"; sourceTree = "<group>"; };
 		797397EC7AC1177ADEB5993A /* Pods-Chess PuzzlesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,8 +201,17 @@
 				4876DE401E316926002229D0 /* LaunchScreen.storyboard */,
 				4876DE421E316926002229D0 /* Main.storyboard */,
 				4876DDF71E316881002229D0 /* art.scnassets */,
-				4876DDFE1E316881002229D0 /* Assets.xcassets */,
-				48BE487F1E52274E00E5531E /* ios */,
+				48BE48811E526C3600E5531E /* Assets.xcassets */,
+				48BE48831E526C5500E5531E /* AppIcon.appiconset */,
+				48BE48841E526C5500E5531E /* Icon-60.png */,
+				48BE48851E526C5500E5531E /* Icon-72.png */,
+				48BE48861E526C5500E5531E /* Icon-72@2x.png */,
+				48BE48871E526C5500E5531E /* Icon@2x.png */,
+				48BE48881E526C5500E5531E /* ItunesArtwork.png */,
+				48BE48891E526C5500E5531E /* Icon-Small-50.png */,
+				48BE488A1E526C5500E5531E /* Icon-Small-50@2x.png */,
+				48BE488B1E526C5500E5531E /* Icon.png */,
+				48BE488C1E526C5500E5531E /* ItunesArtwork@2x.png */,
 				4876DE031E316881002229D0 /* Info.plist */,
 				4876DE251E316918002229D0 /* Chess Puzzles-Bridging-Header.h */,
 			);
@@ -219,6 +250,8 @@
 		4876DE4D1E316B43002229D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				48C6F9101E535BCF000D23BC /* title_text_black.png */,
+				48C6F9111E535BCF000D23BC /* title_text_white.png */,
 				48BE48751E520A0000E5531E /* bishop.png */,
 				48BE48761E520A0000E5531E /* knight.png */,
 				48BE48771E520A0000E5531E /* knights36.png */,
@@ -404,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BE488D1E526C5500E5531E /* AppIcon.appiconset in Resources */,
 				48BE487A1E520A0000E5531E /* knight.png in Resources */,
 				4876DE681E316B87002229D0 /* brainguy.png in Resources */,
 				4876DE441E316926002229D0 /* LaunchScreen.storyboard in Resources */,
@@ -412,14 +446,24 @@
 				4876DDF81E316881002229D0 /* art.scnassets in Resources */,
 				48BE487B1E520A0000E5531E /* knights36.png in Resources */,
 				4876DE661E316B87002229D0 /* bg.png in Resources */,
+				48BE48961E526C5500E5531E /* ItunesArtwork@2x.png in Resources */,
+				48BE48941E526C5500E5531E /* Icon-Small-50@2x.png in Resources */,
+				48BE48911E526C5500E5531E /* Icon@2x.png in Resources */,
 				4876DE701E316BE9002229D0 /* Piecescollada-3.dae in Resources */,
-				4876DDFF1E316881002229D0 /* Assets.xcassets in Resources */,
+				48BE48951E526C5500E5531E /* Icon.png in Resources */,
+				48C6F9131E535BCF000D23BC /* title_text_white.png in Resources */,
 				4876DE4C1E316B17002229D0 /* SceneView.xib in Resources */,
+				48BE488F1E526C5500E5531E /* Icon-72.png in Resources */,
+				48BE48931E526C5500E5531E /* Icon-Small-50.png in Resources */,
 				4876DE691E316B87002229D0 /* cancel.png in Resources */,
+				48BE48901E526C5500E5531E /* Icon-72@2x.png in Resources */,
 				4876DE451E316926002229D0 /* Main.storyboard in Resources */,
+				48BE48921E526C5500E5531E /* ItunesArtwork.png in Resources */,
+				48C6F9121E535BCF000D23BC /* title_text_black.png in Resources */,
 				48BE48791E520A0000E5531E /* bishop.png in Resources */,
-				48BE48801E52274E00E5531E /* ios in Resources */,
+				48BE48821E526C3600E5531E /* Assets.xcassets in Resources */,
 				4876DE6C1E316B87002229D0 /* ok.png in Resources */,
+				48BE488E1E526C5500E5531E /* Icon-60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@ class GameScene: SKScene {
     
     var viewController:GameViewController?
     private var gameStatus = status.START_SCREEN                                                //estado actual del menu
-    private var title : SKLabelNode?                                                            //Label del titulo del juego
+    private var title : SKSpriteNode?/*SKLabelNode?*/                                                            //Label del titulo del juego
     private var start : SKLabelNode?                                                            //Label de "touch to start" de la pantalla inicial
     
     private var center = CGPoint()                                                              //Centro de la pantalla
@@ -172,7 +172,7 @@ class GameScene: SKScene {
                 var moves:[SKAction] = []
                 let max_vector_lenght = 5.0
                 self.controls = self.createButtons(images_paths: self.image_names, handler_functions: self.handler_functions, handler: self)            //Crea los botones con sus imagenes
-                self.controls = self.setButtonsRowPosition(buttons: self.controls, area_: CGSize(width: 0.25, height: 0.25), surface: CGRect(x: 0.15, y: 0.4, width: 1.0, height: 0.4))     //Calcula la posicion y escala de los botones para que vayan uniformemente desntro del rectangulo pasado
+                self.controls = self.setButtonsRowPosition(buttons: self.controls, area_: CGSize(width: 0.25, height: 0.25), surface: CGRect(x: 0.10, y: 0.4, width: 1.0, height: 0.4))     //Calcula la posicion y escala de los botones para que vayan uniformemente desntro del rectangulo pasado
                 let common_node = SKNode()                      //nodo comun de los botones
                 for i in self.controls
                 {
@@ -213,7 +213,7 @@ class GameScene: SKScene {
         self.brainGuy = SKSpriteNode(imageNamed: brainGuyName)
         self.bgImage = SKSpriteNode(imageNamed: bgImageName)
         self.bgImage.position = CGPoint.zero
-        self.bgImage.size.width /= self.bgImage.size.height / self.size.height                                  //calcula la escala
+        self.bgImage.size.width = self.size.width // /= self.bgImage.size.height /  self.size.height                                  //calcula la escala
         self.bgImage.size.height = self.size.height
         var  brainguy_animation = [SKAction.rotate(byAngle: -0.30, duration: 0.7), SKAction.rotate(byAngle: 0.30, duration: 0.7)]
         brainguy_animation.append(contentsOf: brainguy_animation.reversed())
@@ -230,14 +230,22 @@ class GameScene: SKScene {
         self.start?.fontName = "Arial"
         self.start?.alpha = 0.5
         self.start?.fontSize = 20
-        self.start?.position = absolutePosition(relative: CGPoint(x:0, y: -0.1))
+        self.start?.position = absolutePosition(relative: CGPoint(x:0, y: -0.2))
       
-
+        /*
         self.title = SKLabelNode()
         self.title?.text = "CHESS PUZZLES"
         self.title?.fontName = "Chalkduster"
  
-        self.title?.fontSize = 65
+        self.title?.fontSize = 65*/
+        self.title = SKSpriteNode(imageNamed: "title_text_white.png")
+        self.title?.position.x = CGPoint.zero.x
+        self.title?.position.y = CGPoint.zero.y
+        let scale =   (self.title?.size.height)!/(self.title?.size.width)!
+        
+        self.title?.size.width = self.size.width// * 0.5 // /= self.bgImage.size.height /  self.size.height                                  //calcula la escala
+        self.title?.size.height = (self.title?.size.width)! * scale// * 0.5
+        ///////////////////
         self.title?.position = absolutePosition(relative: CGPoint(x:0, y: -0.15))
         self.title?.setScale(0.0)
 

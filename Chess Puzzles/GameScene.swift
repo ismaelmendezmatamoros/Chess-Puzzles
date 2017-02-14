@@ -34,7 +34,7 @@ class GameScene: SKScene {
     private var bgImage:SKSpriteNode = SKSpriteNode()                                           //imagen de fondo
     private var brainGuy:SKSpriteNode = SKSpriteNode()                                          //Sprite del muñeco del menu
     private let bgImageName:String = "bg.png"
-    private let brainGuyName:String = "brainguy.png"
+    private let brainGuyName:String = "brain.png"
     private var veil:SKSpriteNode = SKSpriteNode()                                              //Velo que se utiliza para ocurecer toda la pantalla
 
     private var game_selection_node = SKSpriteNode()                                            // Nodo para mostrar las descripciones de los juegos
@@ -215,6 +215,10 @@ class GameScene: SKScene {
         self.bgImage.position = CGPoint.zero
         self.bgImage.size.width = self.size.width // /= self.bgImage.size.height /  self.size.height                                  //calcula la escala
         self.bgImage.size.height = self.size.height
+        //////////
+        let seq = [SKAction.fadeAlpha(to: 0.9, duration: 0.7), SKAction.fadeAlpha(to: 1.0, duration: 0.7)]
+        self.bgImage.run(SKAction.repeatForever(SKAction.sequence(seq )))
+        //////////
         var  brainguy_animation = [SKAction.rotate(byAngle: -0.30, duration: 0.7), SKAction.rotate(byAngle: 0.30, duration: 0.7)]
         brainguy_animation.append(contentsOf: brainguy_animation.reversed())
         
@@ -222,8 +226,8 @@ class GameScene: SKScene {
         self.brainGuy.position.y -= absolutePosition(relative: CGPoint(x:0, y:0.060)).y
         self.brainGuy.size.height /= self.brainGuy.size.width / self.bgImage.size.width
         self.brainGuy.size.width = self.bgImage.size.width
-        self.brainGuy.setScale(0.7)
-        self.brainGuy.run(SKAction.repeatForever(SKAction.sequence(brainguy_animation)))                           //las acciones del monigote para que se mueva a ambos lados
+        self.brainGuy.setScale(0.30)
+        //self.brainGuy.run(SKAction.repeatForever(SKAction.sequence(brainguy_animation)))                           //las acciones del monigote para que se mueva a ambos lados
   
         self.start = SKLabelNode()
         self.start?.text = "Touch to start"
@@ -258,12 +262,19 @@ class GameScene: SKScene {
         title_shows_actions.append(SKAction.repeatForever(SKAction.sequence(title_shows_actions_loop)))
         self.title?.run(SKAction.sequence(title_shows_actions))                                                    //Inicia las acciones del titulo
        
+        /*
         self.bgImage.addChild(self.brainGuy)
         self.bgImage.addChild(self.veil)
         self.title?.addChild(self.start!)
         self.bgImage.addChild((self.title)!)
         
+        self.addChild(self.bgImage)*/
         self.addChild(self.bgImage)
+        self.addChild(self.brainGuy)
+        self.addChild(self.veil)
+        self.addChild((self.title)!)
+        self.title!.addChild((self.start!))
+        
     }
     
     /*Transiciona entre la pantalla de juego elegido la de seleccion de juegos. Se llama cuando el jugador pulsa cancel al elegir un juego

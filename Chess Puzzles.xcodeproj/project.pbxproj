@@ -52,6 +52,7 @@
 		48BE48961E526C5500E5531E /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BE488C1E526C5500E5531E /* ItunesArtwork@2x.png */; };
 		48C6F9121E535BCF000D23BC /* title_text_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C6F9101E535BCF000D23BC /* title_text_black.png */; };
 		48C6F9131E535BCF000D23BC /* title_text_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C6F9111E535BCF000D23BC /* title_text_white.png */; };
+		48C6F9151E536E2B000D23BC /* brain.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C6F9141E536E2B000D23BC /* brain.png */; };
 		6F062F95E7E4C05F653C0DAD /* Pods_Chess_PuzzlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ABEE6750AB6E3841BD37E2 /* Pods_Chess_PuzzlesUITests.framework */; };
 		F0511A09D066D946BBF9685E /* Pods_Chess_Puzzles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AFD009A76B8B8F1A91303E /* Pods_Chess_Puzzles.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		48BE488C1E526C5500E5531E /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ItunesArtwork@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png"; sourceTree = "<group>"; };
 		48C6F9101E535BCF000D23BC /* title_text_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_text_black.png; sourceTree = "<group>"; };
 		48C6F9111E535BCF000D23BC /* title_text_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_text_white.png; sourceTree = "<group>"; };
+		48C6F9141E536E2B000D23BC /* brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain.png; sourceTree = "<group>"; };
 		5E6ED6EDCABEB04046AB4C3F /* Pods-Chess Puzzles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.debug.xcconfig"; sourceTree = "<group>"; };
 		71248D3D5A8D44EABC1F8706 /* Pods-Chess Puzzles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Puzzles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Puzzles/Pods-Chess Puzzles.release.xcconfig"; sourceTree = "<group>"; };
 		797397EC7AC1177ADEB5993A /* Pods-Chess PuzzlesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess PuzzlesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess PuzzlesTests/Pods-Chess PuzzlesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		4876DE4D1E316B43002229D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				48C6F9141E536E2B000D23BC /* brain.png */,
 				48C6F9101E535BCF000D23BC /* title_text_black.png */,
 				48C6F9111E535BCF000D23BC /* title_text_white.png */,
 				48BE48751E520A0000E5531E /* bishop.png */,
@@ -445,6 +448,7 @@
 				48BE487C1E520A0000E5531E /* reinas.png in Resources */,
 				4876DDF81E316881002229D0 /* art.scnassets in Resources */,
 				48BE487B1E520A0000E5531E /* knights36.png in Resources */,
+				48C6F9151E536E2B000D23BC /* brain.png in Resources */,
 				4876DE661E316B87002229D0 /* bg.png in Resources */,
 				48BE48961E526C5500E5531E /* ItunesArtwork@2x.png in Resources */,
 				48BE48941E526C5500E5531E /* Icon-Small-50@2x.png in Resources */,
